@@ -1,7 +1,10 @@
-git clone --depth 1 https://github.com/libxposed/api.git libxposed/api
-git clone --depth 1 https://github.com/libxposed/service.git libxposed/service
-
-cd libxposed/api
+./gradlew
+cd api
+echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
 ./gradlew :api:publishApiPublicationToMavenLocal
-cd ../service
+cd ..
+cd service
+echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
 ./gradlew :interface:publishInterfacePublicationToMavenLocal
+cd ..
+./gradlew build
