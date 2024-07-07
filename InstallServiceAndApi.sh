@@ -1,3 +1,4 @@
+chmod +x gradlew
 ./gradlew
 cd api
 echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
