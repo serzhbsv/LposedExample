@@ -19,6 +19,19 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: gradle
+
+    - name: Checkout libxposed/api
+      uses: actions/checkout@v3
+      with:
+          repository: libxposed/api
+          path: libxposed/api
+
+    - name: Checkout libxposed/api
+      uses: actions/checkout@v3
+      with:
+          repository: libxposed/service
+          path: libxposed/service
+        
     - name: permission for sh
       run: chmod +x InstallServiceAndApi.sh
     
