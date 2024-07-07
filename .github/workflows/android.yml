@@ -32,8 +32,9 @@ jobs:
           path: libxposed/service
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
+      run: |
+            chmod +x gradlew
+            ./gradlew
     - name: Build dependencies
       working-directory: libxposed
       run: |
@@ -45,5 +46,3 @@ jobs:
           cd service
           echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
           ./gradlew :interface:publishInterfacePublicationToMavenLocal
-          cd ..
-          ./gradlew build
