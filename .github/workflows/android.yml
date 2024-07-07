@@ -22,11 +22,11 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-           git clone --depth 1 https://github.com/libxposed/api.git libxposed/api
-           git clone --depth 1 https://github.com/libxposed/service.git libxposed/service
-           cd libxposed/api
-           ./gradlew :api:publishApiPublicationToMavenLocal
-           cd ../service
-           ./gradlew :interface:publishInterfacePublicationToMavenLocal
+          git clone --depth 1 https://github.com/libxposed/api.git libxposed/api
+          git clone --depth 1 https://github.com/libxposed/service.git libxposed/service
+          cd libxposed/api
+          ./gradlew :api:publishApiPublicationToMavenLocal
+          cd ../service
+          ./gradlew :interface:publishInterfacePublicationToMavenLocal
     - name: Build with Gradle
       run: ./gradlew build
