@@ -31,12 +31,18 @@ jobs:
       with:
           repository: libxposed/service
           path: libxposed/service
-        
-    - name: permission for sh
-      run: chmod +x InstallServiceAndApi.sh
-    
-    - name: Install Service and Api
-      run: ./InstallServiceAndApi.sh
+
+    - name: Build dependencies
+      working-directory: libxposed
+      run: |
+          cd api
+          echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
+          ./gradlew :api:publishApiPublicationToMavenLocal
+          cd ..
+          cd service
+          echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
+          ./gradlew :interface:publishInterfacePublicationToMavenLocal
+
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
