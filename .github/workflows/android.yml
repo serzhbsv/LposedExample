@@ -19,16 +19,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: gradle
-
-    - name: Install Api
-      run: git clone --depth 1 https://github.com/libxposed/api.git libxposed/api
-            cd libxposed/api
-            ./gradlew :api:publishApiPublicationToMavenLocal
-
-    - name: Install Service
-      run: git clone --depth 1 https://github.com/libxposed/service.git libxposed/service
-            cd ../service
-           ./gradlew :interface:publishInterfacePublicationToMavenLocal
+    - name: permission for sh
+      run: chmod +x InstallServiceAndApi.sh
+    
+    - name: Install Service and Api
+      run: ./InstallServiceAndApi.sh
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
