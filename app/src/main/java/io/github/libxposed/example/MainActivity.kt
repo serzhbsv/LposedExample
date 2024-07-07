@@ -67,7 +67,7 @@ class MainActivity : Activity() {
                 binding.scope.text = "Scope: " + service.scope
 
                 binding.requestScope.setOnClickListener {
-                    service.requestScope("com.android.settings", mCallback)
+                    service.requestScope("com.appicagame.Mage.majesty", mCallback)
                 }
                 binding.randomPrefs.setOnClickListener {
                     val prefs = service.getRemotePreferences("test")
